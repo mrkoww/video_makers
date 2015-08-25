@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :videos, dependent: :destroy
+
   # Helper
   def is_maker?
     is_maker
