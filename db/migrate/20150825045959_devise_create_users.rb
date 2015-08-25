@@ -33,7 +33,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
       t.timestamps null: false
 
-      t.boolean :is_maker, default: false, null: false
+      t.boolean :is_maker, default: true, null: false
     end
 
     add_index :users, :email,                unique: true
