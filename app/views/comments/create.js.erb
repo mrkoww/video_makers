@@ -1,0 +1,7 @@
+<% if @comment.errors.present? %>
+    $('.new_comment_error').html('<%= render 'comments/error', error: @comment.errors[:body].first %>')
+<% else %>
+    $('.comments').append('<%= j render @comment %>')
+    $('.new_comment_error').html('');
+    $('#comment_body').val('');
+<% end %>

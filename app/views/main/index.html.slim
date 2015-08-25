@@ -1,2 +1,9 @@
+- @videos.each do |video|
+  p= video.name
+  p= video_tag video.file, controls: true
+  p= video.description
+
+  br
+
 - if user_signed_in? && current_user.is_maker?
   = link_to 'Add video', new_video_path

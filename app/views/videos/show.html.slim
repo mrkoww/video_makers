@@ -1,0 +1,23 @@
+p= @video.name
+p= video_tag @video.file, controls: true
+p= @video.description
+p= link_to 'Delete', video_path(@video), method: :delete, class: 'btn btn-danger btn-sm'
+
+h4= 'Comments:'
+.comments
+  - @comments.each do |comment|
+    p= comment.user.email
+    p= comment.body
+    br
+
+hr
+
+= form_for [ @video, Comment.new ], remote: true do |f|
+  .row
+    .col-md-8
+      .form-group
+        p= f.label :body
+        p= f.text_area :body, class: "form-control", rows: 5
+        .new_comment_error
+
+      p= f.submit 'Publish', class: "btn btn-default"
