@@ -5,7 +5,7 @@ class CreateComments < ActiveRecord::Migration
     end
 
     add_reference :comments, :user, index: true
-    add_reference :comments, :videos, index: true
+    add_reference :comments, :video, index: true
 
     add_foreign_key :comments, :users
     add_foreign_key :comments, :videos
