@@ -1,5 +1,5 @@
-class VideoController < ApplicationController
-  before_action :load_video, only: [ :destroy ]
+class VideosController < ApplicationController
+  before_action :load_video, only: [ :show, :destroy ]
   before_action :authenticate_user!
 
   def index
@@ -14,6 +14,10 @@ class VideoController < ApplicationController
     respond_with @video = Video.create(video_params)
   end
 
+  def show
+    @comments = Comment.where(video_id: params[:id])
+  end
+
   def destroy
     respond_with @video.destroy
   end
@@ -21,8 +25,7 @@ class VideoController < ApplicationController
   private
 
   def video_params
-    params.require(:video).permit(:name, :description, :file)
-    .merge(user_id: current_user.id)
+    params.require(:video).permit(:name, :description, :file).merge(user_id: current_user.id)
   end
 
   def load_video
