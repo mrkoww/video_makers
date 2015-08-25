@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root to: "main#index"
 
-  resources :videos, to: "video"
+  resources :videos, shallow: true do
+    resources :comments, only: [ :create, :update, :destroy ]
+  end
 
 end
