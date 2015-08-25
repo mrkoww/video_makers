@@ -8,6 +8,7 @@ class Video < ActiveRecord::Base
   validates :description, length:  { in: 15..250 }
 
   # Associations
+  has_many :comments
   belongs_to :user
 
   # Uploader

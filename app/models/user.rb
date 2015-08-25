@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :videos, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   # Helper
   def is_maker?
