@@ -5,13 +5,15 @@
     span.icon-bar
     span.icon-bar
   a.navbar-brand href= "#{root_path}"
-    | Auto Questions
+    | Video Makers
 
 .collapse.navbar-collapse#navbar-collapse-1
-  ul.nav.navbar-nav
-    li
-      - if user_signed_in?
-        = link_to 'My videos', root_path
+  - if user_signed_in?
+    ul.nav.navbar-nav
+      li
+        = link_to 'My videos', videos_path
+      li
+        = link_to 'Add video', new_video_path
 
   / log/reg form
   ul.nav.navbar-nav.navbar-right

@@ -1,1 +1,2 @@
-= video_tag "2.mp4", controls: true
+- if user_signed_in? && current_user.is_maker?
+  = link_to 'Add video', new_video_path
