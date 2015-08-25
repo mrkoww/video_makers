@@ -29,6 +29,8 @@ gem 'slim'
 gem 'twitter-bootstrap-rails'
 gem 'less-rails'
 
+gem 'carrierwave'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
