@@ -24,6 +24,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby
 
+gem 'responders'
+
 gem 'devise'
 gem 'slim'
 gem 'twitter-bootstrap-rails'
