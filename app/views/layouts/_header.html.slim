@@ -1,0 +1,25 @@
+.navbar-header
+  button.navbar-toggle type="button" data-toggle="collapse" data-target="#navbar-collapse-1"
+    span.sr-only Toggle navigation
+    span.icon-bar
+    span.icon-bar
+    span.icon-bar
+  a.navbar-brand href= "#{root_path}"
+    | Auto Questions
+
+.collapse.navbar-collapse#navbar-collapse-1
+  ul.nav.navbar-nav
+    li
+      - if user_signed_in?
+        = link_to 'My videos', root_path
+
+  / log/reg form
+  ul.nav.navbar-nav.navbar-right
+    - if user_signed_in?
+      li
+        = link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'navbar-link'
+    - else
+      li
+        = link_to 'Log in', new_user_session_path, class: 'navbar-link'
+      li
+        = link_to 'Sign Up', new_user_registration_path, class: 'navbar-link'
